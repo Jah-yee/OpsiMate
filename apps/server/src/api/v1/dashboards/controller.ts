@@ -96,10 +96,10 @@ export class DashboardController {
 			const success = await this.dashboardBL.deleteDashboard(dashboardId);
 
 			if (!success) {
-				return res.status(404).json({ success: false, error: 'dashboard not found or could not be deleted' });
+				return res.status(404).json({ success: false, error: 'Dashboard not found' });
 			}
 
-			return res.json({ success: true, message: 'dashboards deleted successfully' });
+			return res.json({ success: true, message: 'Dashboard deleted successfully' });
 		} catch (error) {
 			logger.error('Error deleting dashboards:', error);
 			const message = error instanceof Error ? error.message : 'Internal server error';
